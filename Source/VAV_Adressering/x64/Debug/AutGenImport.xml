@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200">
+	<fileHeader companyName="WAGO" productName="e!COCKPIT" productVersion="e!COCKPIT" creationDateTime="2021-01-18T14:20:23.2110188" />
+	<contentHeader name="Adressering.ecp" modificationDateTime="2021-01-18T11:51:27.6823754">
+		<coordinateInfo>
+			<fbd>
+				<scaling x = "1" y = "1" />
+			</fbd>
+			<ld>
+				<scaling x = "1" y = "1" />
+			</ld>
+			<sfc>
+				<scaling x="1" y="1" />
+			</sfc>
+		</coordinateInfo>
+		<addData>
+			<data name="http://www.3s-software.com/plcopenxml/projectinformation" handleUnknown="implementation">
+				<ProjectInformation />
+			</data>
+		</addData>
+	</contentHeader>
+	<types>
+		<dataTypes >
+		<dataType name="typVAV">
+			<baseType>
+				<struct>
+					<variable name="xReady">
+						<type>
+							<BOOL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Status adr.</xhtml>
+						</documentation>
+					</variable>
+					<variable name="xEnable">
+						<type>
+							<BOOL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Enable MP blokk</xhtml>
+						</documentation>
+					</variable>
+					<variable name="xAddress">
+						<type>
+							<BOOL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Adresserer VAV</xhtml>
+						</documentation>
+					</variable>
+					<variable name="xFailed">
+						<type>
+							<BOOL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Tilbakemelding adressering (True = SerieNr inn og ut ikke stemmer)</xhtml>
+						</documentation>
+					</variable>
+					<variable name="sSetStatus">
+						<type>
+							<string />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Status tilbakemelding naar adresseringen er i SET step</xhtml>
+						</documentation>
+					</variable>
+					<variable name="sGetStatus">
+						<type>
+							<string />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Status tilbakemelding naar adresseringen er i GET step</xhtml>
+						</documentation>
+					</variable>
+					<variable name="iSerialNr">
+						<type>
+							<derived name="typSerialNo" />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Serie NR</xhtml>
+						</documentation>
+					</variable>
+					<variable name="bPort">
+						<type>
+							<BYTE />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">VAV Port</xhtml>
+						</documentation>
+					</variable>
+					<variable name="bAddress">
+						<type>
+							<BYTE />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">VAV Address</xhtml>
+						</documentation>
+					</variable>
+					<variable name="xInitialize">
+						<type>
+							<BOOL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">initializer tilhoerende vav</xhtml>
+						</documentation>
+					</variable>
+					<variable name="rAirVolume_SP">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Settpunkt 0-100%</xhtml>
+						</documentation>
+					</variable>
+					<variable name="rOutPosition">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Vinkel</xhtml>
+						</documentation>
+					</variable>
+					<variable name="rOutAirVolume_perc">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Luftmengde i prosent</xhtml>
+						</documentation>
+					</variable>
+					<variable name="rOutAirVolume_m3h">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Luftmengde i m3h</xhtml>
+						</documentation>
+					</variable>
+					<variable name="wSensorValue">
+						<type>
+							<WORD />
+						</type>
+					</variable>
+					<variable name="rVmin">
+						<type>
+							<REAL />
+						</type>
+					</variable>
+					<variable name="rVmax">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Max vinkel</xhtml>
+						</documentation>
+					</variable>
+					<variable name="xControlRangeIncreased">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="xMecanicalOverload">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="xActuatorHunting">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="xSensorError">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="xManualOpen">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="xManualClose">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="vMin">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Min luftmengde SP / 0-100</xhtml>
+						</documentation>
+					</variable>
+					<variable name="vNorm">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml"> Settpunkt ved bevegelse / 0-100 </xhtml>
+						</documentation>
+					</variable>
+					<variable name="vMax">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Maks luftmengde SP / 0-100 </xhtml>
+						</documentation>
+					</variable>
+					<variable name="vSize">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Max kubikk</xhtml>
+						</documentation>
+					</variable>
+					<variable name="vSetpoint_m3h">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">SP%</xhtml>
+						</documentation>
+					</variable>
+					<variable name="xdontoptimize">
+						<type>
+							<BOOL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Fjerner VAV fra Optimizer</xhtml>
+						</documentation>
+					</variable>
+				</struct>
+			</baseType>
+			<addData />
+		</dataType>
+	</dataTypes>
+	<pous>
+		<pou name="fbAutAd" pouType="functionBlock">
+			<interface>
+				<inputVars>
+					<variable name="iSerialNr">
+						<type>
+							<derived name="typSerialNo" />
+						</type>
+					</variable>
+					<variable name="bPort">
+						<type>
+							<BYTE />
+						</type>
+					</variable>
+					<variable name="bAddress">
+						<type>
+							<BYTE />
+						</type>
+					</variable>
+					<variable name="xReset">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="xNext">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					</inputVars>
+				<outputVars>
+					<variable name="i">
+						<type>
+							<INT />
+						</type>
+						<initialValue>
+							<simpleValue value="0" />
+						</initialValue>
+					</variable>
+					<variable name="xFailed">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="sSetStatus">
+						<type>
+							<string />
+						</type>
+					</variable>
+					<variable name="sGetStatus">
+						<type>
+							<string />
+						</type>
+					</variable>
+				</outputVars>
+				<localVars>
+					<variable name="xLearn">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="xRetry">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="VAV_Addressing">
+						<type>
+							<derived name="fbMpBusAddressing" />
+						</type>
+					</variable>
+					<variable name="Sleep">
+						<type>
+							<derived name="TON" />
+						</type>
+					</variable>
+				</localVars>
+						</interface>
+						<body>
+				<ST>
+					<xhtml xmlns="http://www.w3.org/1999/xhtml">//Resetter
+IF xReset THEN
+	i:= 0;
+	xRetry:= FALSE;
+
+//Begynner paa neste VAV
+ELSIF i&lt;1 AND xNext THEN
+	i:= 1;
+
+//Skriver rett port og adresse til VAV naar blokken er klar
+ELSIF VAV_Addressing.xReady AND i=1 AND Sleep.Q THEN
+	VAV_Addressing
+	(
+		xSet:= TRUE,
+		xLearn:= xLearn
+	);
+	i:= 2;
+	//Spoer etter serie nr som hoerer til port og adresse
+ELSIF VAV_Addressing.xReady AND i=2 AND Sleep.Q THEN
+	sSetStatus:= VAV_Addressing.sStatus;
+	VAV_Addressing
+	(
+		xGetSerialNO:= TRUE,
+		xLearn:= xLearn
+	);
+	i:= 3;
+	//Sjekker om serie nr. som tilhoerer port og adressen stemmer
+ELSIF VAV_Addressing.xReady AND i=3 AND Sleep.Q THEN
+	sGetStatus:= VAV_Addressing.sStatus;
+	//Sjekker om serie nr stemmer
+	IF xRetry AND VAV_Addressing.typOUTSerialNo.wYearAndWeek &lt;&gt; iSerialNr.wYearAndWeek OR VAV_Addressing.typOUTSerialNo.wDayAndNumber &lt;&gt; iSerialNr.wDayAndNumber OR VAV_Addressing.typOUTSerialNo.bTypeID &lt;&gt; iSerialNr.bTypeID OR VAV_Addressing.typOUTSerialNo.bTestStation &lt;&gt; iSerialNr.bTestStation THEN
+		xRetry:= FALSE;
+		xFailed:= TRUE;
+		i:=4;
+	ELSIF VAV_Addressing.typOUTSerialNo.wYearAndWeek &lt;&gt; iSerialNr.wYearAndWeek OR VAV_Addressing.typOUTSerialNo.wDayAndNumber &lt;&gt; iSerialNr.wDayAndNumber OR VAV_Addressing.typOUTSerialNo.bTypeID &lt;&gt; iSerialNr.bTypeID OR VAV_Addressing.typOUTSerialNo.bTestStation &lt;&gt; iSerialNr.bTestStation THEN
+		xRetry:= TRUE;
+		i:=1;
+	ELSE
+		i:=4;
+	END_IF
+	Sleep(IN:= FALSE, PT:= T#2S);
+
+//Resetter xSet og xGet, og Setter Port, adresse og serie nr. og henter status
+
+ELSE
+	VAV_Addressing
+	(
+		bPortMpBus:= bPort,
+		bAddress:= bAddress,
+		typINSerialNo:= iSerialNr,
+		xLearn:= xLearn,
+		xSet:= FALSE,
+		xGetSerialNO:= FALSE,
+		xLearn:= xLearn
+	);
+END_IF</xhtml>
+				</ST>
+			</body>
+			<addData />
+		</pou>
+		<pou name="PRG_VAV_Adressering" pouType="program">
+			<interface>
+				<localVars>
+					<variable name="xReset">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="xRun">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="xInit">
+						<type>
+							<BOOL />
+						</type>
+						<initialValue>
+							<simpleValue value="TRUE" />
+						</initialValue>
+					</variable>
+					<variable name="Auto">
+						<type>
+							<derived name="fbAutAd" />
+						</type>
+					</variable>
+					<variable name="iLinje">
+						<type>
+							<INT />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Linje som skal adresseres</xhtml>
+						</documentation>
+					</variable>
+					<variable name="iVAV">
+						<type>
+							<INT />
+						</type>
+						<initialValue>
+							<simpleValue value="1" />
+						</initialValue>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">VAV(adr.) som adresseres</xhtml>
+						</documentation>
+					</variable>
+				</localVars>
+			</interface>
+			<body>
+				<ST>
+					<xhtml xmlns="http://www.w3.org/1999/xhtml">IF xReset THEN
+	Auto(xReset:= TRUE);
+	xInit:= TRUE;
+	xReset:= FALSE;
+ELSIF xRun THEN
+
+	IF 1.txt.stlv80_a_360_3I302_SQ401.xAddress OR (iLinje = 1 AND iVAV = 1) THEN
+
+	IF xInit THEN
+		1.txt.stlv80_a_360_3I302_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= 1.txt.stlv80_a_360_3I302_SQ401.bPort,
+			bAddress:= 1.txt.stlv80_a_360_3I302_SQ401.bAddress,
+			iSerialNr:= 1.txt.stlv80_a_360_3I302_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		1.txt.stlv80_a_360_3I302_SQ401.sSetStatus:= Auto.sSetStatus;
+			1.txt.stlv80_a_360_3I302_SQ401.sGetStatus:= Auto.sGetStatus;
+			1.txt.stlv80_a_360_3I302_SQ401.xFailed:= Auto.xFailed;
+			1.txt.stlv80_a_360_3I302_SQ401.xAddress:= FALSE;
+			1.txt.stlv80_a_360_3I302_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	END_IF
+END_IF
+</xhtml>
+				</ST>
+			</body>
+			<addData />
+		</pou>
+	</pous>
+</types>
+<instances>
+	<configurations />
+</instances>
+<addData>
+	<data name="http://www.3s-software.com/plcopenxml/globalvars" handleUnknown="implementation">
+		<globalVars name="1.txt" retain="true" persistent="true">
+			<variable name="stlv80_a_360_3I302_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<documentation>
+				<xhtml xmlns="http://www.w3.org/1999/xhtml">
+/</xhtml>
+			</documentation>
+			<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="30" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="100" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="200" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="1" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="1" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01945" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="20056" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="158" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<addData>
+				<data name="http://www.3s-software.com/plcopenxml/attributes" handleUnknown="implementation">
+					<Attributes>
+						<Attribute Name="qualified_only"/>
+					</Attributes>
+				</data>
+				<data name="http://www.3s-software.com/plcopenxml/buildproperties" handleUnknown="implementation">
+					<BuildProperties>
+						<LinkAlways>true</LinkAlways>
+					</BuildProperties>
+				</data>
+			</addData>
+		</globalVars>
+	</data>
+</addData>
+</project>

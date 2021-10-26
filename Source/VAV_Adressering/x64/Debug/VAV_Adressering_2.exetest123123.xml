@@ -1,0 +1,3561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200">
+	<fileHeader companyName="WAGO" productName="e!COCKPIT" productVersion="e!COCKPIT" creationDateTime="2021-01-18T14:20:23.2110188" />
+	<contentHeader name="Adressering.ecp" modificationDateTime="2021-01-18T11:51:27.6823754">
+		<coordinateInfo>
+			<fbd>
+				<scaling x = "1" y = "1" />
+			</fbd>
+			<ld>
+				<scaling x = "1" y = "1" />
+			</ld>
+			<sfc>
+				<scaling x="1" y="1" />
+			</sfc>
+		</coordinateInfo>
+		<addData>
+			<data name="http://www.3s-software.com/plcopenxml/projectinformation" handleUnknown="implementation">
+				<ProjectInformation />
+			</data>
+		</addData>
+	</contentHeader>
+	<types>
+		<dataTypes >
+		<dataType name="typVAV">
+			<baseType>
+				<struct>
+					<variable name="xReady">
+						<type>
+							<BOOL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Status adr.</xhtml>
+						</documentation>
+					</variable>
+					<variable name="xEnable">
+						<type>
+							<BOOL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Enable MP blokk</xhtml>
+						</documentation>
+					</variable>
+					<variable name="xAddress">
+						<type>
+							<BOOL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Adresserer VAV</xhtml>
+						</documentation>
+					</variable>
+					<variable name="xFailed">
+						<type>
+							<BOOL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Tilbakemelding adressering (True = SerieNr inn og ut ikke stemmer)</xhtml>
+						</documentation>
+					</variable>
+					<variable name="sSetStatus">
+						<type>
+							<string />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Status tilbakemelding når adresseringen er i SET step</xhtml>
+						</documentation>
+					</variable>
+					<variable name="sGetStatus">
+						<type>
+							<string />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Status tilbakemelding når adresseringen er i GET step</xhtml>
+						</documentation>
+					</variable>
+					<variable name="iSerialNr">
+						<type>
+							<derived name="typSerialNo" />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Serie NR</xhtml>
+						</documentation>
+					</variable>
+					<variable name="bPort">
+						<type>
+							<BYTE />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">VAV Port</xhtml>
+						</documentation>
+					</variable>
+					<variable name="bAddress">
+						<type>
+							<BYTE />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">VAV Address</xhtml>
+						</documentation>
+					</variable>
+					<variable name="xInitialize">
+						<type>
+							<BOOL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">initializer tilhoerende vav</xhtml>
+						</documentation>
+					</variable>
+					<variable name="rAirVolume_SP">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Settpunkt 0-100%</xhtml>
+						</documentation>
+					</variable>
+					<variable name="xReady">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Vinkel</xhtml>
+						</documentation>
+					</variable>
+					<variable name="rOutAirVolume_perc">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Luftmengde i prosent</xhtml>
+						</documentation>
+					</variable>
+					<variable name="rOutAirVolume_m3h">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Luftmengde i m3h</xhtml>
+						</documentation>
+					</variable>
+					<variable name="wSensorValue">
+						<type>
+							<WORD />
+						</type>
+					</variable>
+					<variable name="rVmin">
+						<type>
+							<REAL />
+						</type>
+					</variable>
+					<variable name="rVmax">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Max vinkel</xhtml>
+						</documentation>
+					</variable>
+					<variable name="xControlRangeIncreased">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="xMecanicalOverload">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="xActuatorHunting">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="xSensorError">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="xManualOpen">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="xManualClose">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="vMin">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Min luftmengde SP / 0-100</xhtml>
+						</documentation>
+					</variable>
+					<variable name="vNorm">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml"> Settpunkt ved bevegelse / 0-100 </xhtml>
+						</documentation>
+					</variable>
+					<variable name="vMax">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Maks luftmengde SP / 0-100 </xhtml>
+						</documentation>
+					</variable>
+					<variable name="vSize">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Max kubikk</xhtml>
+						</documentation>
+					</variable>
+					<variable name="vSetpoint_m3h">
+						<type>
+							<REAL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">SP%</xhtml>
+						</documentation>
+					</variable>
+					<variable name="xdontoptimize">
+						<type>
+							<BOOL />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Fjerner VAV fra Optimizer</xhtml>
+						</documentation>
+					</variable>
+				</struct>
+			</baseType>
+			<addData />
+		</dataType>
+	</dataTypes>
+	<pous>
+		<pou name="fbAutAd" pouType="functionBlock">
+			<interface>
+				<inputVars>
+					<variable name="iSerialNr">
+						<type>
+							<derived name="typSerialNo" />
+						</type>
+					</variable>
+					<variable name="bPort">
+						<type>
+							<BYTE />
+						</type>
+					</variable>
+					<variable name="bAddress">
+						<type>
+							<BYTE />
+						</type>
+					</variable>
+					<variable name="xReset">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="xNext">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					</inputVars>
+				<outputVars>
+					<variable name="i">
+						<type>
+							<INT />
+						</type>
+						<initialValue>
+							<simpleValue value="0" />
+						</initialValue>
+					</variable>
+					<variable name="xFailed">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="sSetStatus">
+						<type>
+							<string />
+						</type>
+					</variable>
+					<variable name="sGetStatus">
+						<type>
+							<string />
+						</type>
+					</variable>
+				</outputVars>
+				<localVars>
+					<variable name="xLearn">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="xRetry">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="VAV_Addressing">
+						<type>
+							<derived name="fbMpBusAddressing" />
+						</type>
+					</variable>
+					<variable name="Sleep">
+						<type>
+							<derived name="TON" />
+						</type>
+					</variable>
+				</localVars>
+						</interface>
+						<body>
+				<ST>
+					<xhtml xmlns="http://www.w3.org/1999/xhtml">//Resetter
+IF xReset THEN
+	i:= 0;
+	xRetry:= FALSE;
+
+//Begynner paa neste VAV
+ELSIF i&lt;1 AND xNext THEN
+	i:= 1;
+
+//Skriver rett port og adresse til VAV naar blokken er klar
+ELSIF VAV_Addressing.xReady AND i=1 AND Sleep.Q THEN
+	VAV_Addressing
+	(
+		xSet:= TRUE,
+		xLearn:= xLearn
+	);
+	i:= 2;
+	//Spoer etter serie nr som hoerer til port og adresse
+ELSIF VAV_Addressing.xReady AND i=2 AND Sleep.Q THEN
+	sSetStatus:= VAV_Addressing.sStatus;
+	VAV_Addressing
+	(
+		xGetSerialNO:= TRUE,
+		xLearn:= xLearn
+	);
+	i:= 3;
+	//Sjekker om serie nr. som tilhoerer port og adressen stemmer
+ELSIF VAV_Addressing.xReady AND i=3 AND Sleep.Q THEN
+	sGetStatus:= VAV_Addressing.sStatus;
+	//Sjekker om serie nr stemmer
+	IF xRetry AND VAV_Addressing.typOUTSerialNo.wYearAndWeek &lt;&gt; iSerialNr.wYearAndWeek OR VAV_Addressing.typOUTSerialNo.wDayAndNumber &lt;&gt; iSerialNr.wDayAndNumber OR VAV_Addressing.typOUTSerialNo.bTypeID &lt;&gt; iSerialNr.bTypeID OR VAV_Addressing.typOUTSerialNo.bTestStation &lt;&gt; iSerialNr.bTestStation THEN
+		xRetry:= FALSE;
+		xFailed:= TRUE;
+		i:=4;
+	ELSIF VAV_Addressing.typOUTSerialNo.wYearAndWeek &lt;&gt; iSerialNr.wYearAndWeek OR VAV_Addressing.typOUTSerialNo.wDayAndNumber &lt;&gt; iSerialNr.wDayAndNumber OR VAV_Addressing.typOUTSerialNo.bTypeID &lt;&gt; iSerialNr.bTypeID OR VAV_Addressing.typOUTSerialNo.bTestStation &lt;&gt; iSerialNr.bTestStation THEN
+		xRetry:= TRUE;
+		i:=1;
+	ELSE
+		i:=4;
+	END_IF
+	Sleep(IN:= FALSE, PT:= T#2S);
+
+//Resetter xSet og xGet, og Setter Port, adresse og serie nr. og henter status
+
+ELSE
+	VAV_Addressing
+	(
+		bPortMpBus:= bPort,
+		bAddress:= bAddress,
+		typINSerialNo:= iSerialNr,
+		xLearn:= xLearn,
+		xSet:= FALSE,
+		xGetSerialNO:= FALSE,
+		xLearn:= xLearn
+	);
+END_IF</xhtml>
+				</ST>
+			</body>
+			<addData />
+		</pou>
+		<pou name="VAV_Adressering" pouType="program">
+			<interface>
+				<localVars>
+					<variable name="xReset">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="xRun">
+						<type>
+							<BOOL />
+						</type>
+					</variable>
+					<variable name="xInit">
+						<type>
+							<BOOL />
+						</type>
+						<initialValue>
+							<simpleValue value="TRUE" />
+						</initialValue>
+					</variable>
+					<variable name="Auto">
+						<type>
+							<derived name="fbAutAd" />
+						</type>
+					</variable>
+					<variable name="iLinje">
+						<type>
+							<INT />
+						</type>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">Linje som skal adresseres</xhtml>
+						</documentation>
+					</variable>
+					<variable name="iVAV">
+						<type>
+							<INT />
+						</type>
+						<initialValue>
+							<simpleValue value="1" />
+						</initialValue>
+						<documentation>
+							<xhtml xmlns="http://www.w3.org/1999/xhtml">VAV(adr.) som adresseres</xhtml>
+						</documentation>
+					</variable>
+				</localVars>
+			</interface>
+			<body>
+				<ST>
+					<xhtml xmlns="http://www.w3.org/1999/xhtml">IF xReset THEN
+	Auto(xReset:= TRUE);
+	xInit:= TRUE;
+	xReset:= FALSE;
+ELSIF xRun THEN
+
+	IF STLV80_360.STLV80_A_360_2B205_SQ501.xAddress OR (iLinje = 1 AND iVAV = 1) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2B205_SQ501.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2B205_SQ501.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2B205_SQ501.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2B205_SQ501.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2B205_SQ501.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2B205_SQ501.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2B205_SQ501.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2B205_SQ501.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2B205_SQ501.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2A202_SQ401.xAddress OR (iLinje = 1 AND iVAV = 2) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2A202_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2A202_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2A202_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2A202_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2A202_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2A202_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2A202_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2A202_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2A202_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2A201_SQ501.xAddress OR (iLinje = 1 AND iVAV = 3) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2A201_SQ501.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2A201_SQ501.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2A201_SQ501.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2A201_SQ501.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2A201_SQ501.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2A201_SQ501.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2A201_SQ501.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2A201_SQ501.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2A201_SQ501.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2A301_SQ501.xAddress OR (iLinje = 1 AND iVAV = 4) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2A301_SQ501.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2A301_SQ501.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2A301_SQ501.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2A301_SQ501.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2A301_SQ501.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2A301_SQ501.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2A301_SQ501.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2A301_SQ501.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2A301_SQ501.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2A302_SQ501.xAddress OR (iLinje = 1 AND iVAV = 5) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2A302_SQ501.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2A302_SQ501.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2A302_SQ501.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2A302_SQ501.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2A302_SQ501.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2A302_SQ501.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2A302_SQ501.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2A302_SQ501.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2A302_SQ501.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2A302_SQ401.xAddress OR (iLinje = 1 AND iVAV = 6) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2A302_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2A302_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2A302_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2A302_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2A302_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2A302_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2A302_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2A302_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2A302_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2B301_SQ401.xAddress OR (iLinje = 1 AND iVAV = 7) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2B301_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2B301_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2B301_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2B301_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2B301_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2B301_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2B301_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2B301_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2B301_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2B204_SQ401.xAddress OR (iLinje = 2 AND iVAV = 1) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2B204_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2B204_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2B204_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2B204_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2B204_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2B204_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2B204_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2B204_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2B204_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2C204_SQ401.xAddress OR (iLinje = 2 AND iVAV = 2) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2C204_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2C204_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2C204_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2C204_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2C204_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2C204_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2C204_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2C204_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2C204_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2C202_SQ401.xAddress OR (iLinje = 2 AND iVAV = 3) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2C202_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2C202_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2C202_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2C202_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2C202_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2C202_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2C202_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2C202_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2C202_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2B202_SQ401.xAddress OR (iLinje = 2 AND iVAV = 4) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2B202_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2B202_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2B202_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2B202_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2B202_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2B202_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2B202_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2B202_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2B202_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2B201_SQ401.xAddress OR (iLinje = 2 AND iVAV = 5) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2B201_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2B201_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2B201_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2B201_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2B201_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2B201_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2B201_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2B201_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2B201_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2A201_SQ402.xAddress OR (iLinje = 2 AND iVAV = 6) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2A201_SQ402.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2A201_SQ402.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2A201_SQ402.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2A201_SQ402.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2A201_SQ402.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2A201_SQ402.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2A201_SQ402.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2A201_SQ402.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2A201_SQ402.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2A201_SQ401.xAddress OR (iLinje = 2 AND iVAV = 7) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2A201_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2A201_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2A201_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2A201_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2A201_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2A201_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2A201_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2A201_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2A201_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2B204_SQ501.xAddress OR (iLinje = 2 AND iVAV = 8) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2B204_SQ501.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2B204_SQ501.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2B204_SQ501.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2B204_SQ501.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2B204_SQ501.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2B204_SQ501.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2B204_SQ501.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2B204_SQ501.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2B204_SQ501.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2F203_SQ401.xAddress OR (iLinje = 3 AND iVAV = 1) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2F203_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2F203_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2F203_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2F203_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2F203_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2F203_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2F203_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2F203_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2F203_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2E201_SQ401.xAddress OR (iLinje = 3 AND iVAV = 2) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2E201_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2E201_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2E201_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2E201_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2E201_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2E201_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2E201_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2E201_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2E201_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2E201_SQ402.xAddress OR (iLinje = 3 AND iVAV = 3) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2E201_SQ402.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2E201_SQ402.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2E201_SQ402.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2E201_SQ402.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2E201_SQ402.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2E201_SQ402.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2E201_SQ402.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2E201_SQ402.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2E201_SQ402.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2E201_SQ403.xAddress OR (iLinje = 3 AND iVAV = 4) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2E201_SQ403.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2E201_SQ403.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2E201_SQ403.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2E201_SQ403.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2E201_SQ403.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2E201_SQ403.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2E201_SQ403.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2E201_SQ403.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2E201_SQ403.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2D202_SQ401.xAddress OR (iLinje = 3 AND iVAV = 5) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2D202_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2D202_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2D202_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2D202_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2D202_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2D202_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2D202_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2D202_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2D202_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2D202_SQ402.xAddress OR (iLinje = 3 AND iVAV = 6) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2D202_SQ402.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2D202_SQ402.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2D202_SQ402.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2D202_SQ402.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2D202_SQ402.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2D202_SQ402.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2D202_SQ402.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2D202_SQ402.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2D202_SQ402.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2D202_SQ501.xAddress OR (iLinje = 3 AND iVAV = 7) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2D202_SQ501.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2D202_SQ501.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2D202_SQ501.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2D202_SQ501.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2D202_SQ501.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2D202_SQ501.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2D202_SQ501.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2D202_SQ501.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2D202_SQ501.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2F203_SQ501.xAddress OR (iLinje = 3 AND iVAV = 8) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2F203_SQ501.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2F203_SQ501.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2F203_SQ501.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2F203_SQ501.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2F203_SQ501.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2F203_SQ501.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2F203_SQ501.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2F203_SQ501.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2F203_SQ501.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2F303_SQ402.xAddress OR (iLinje = 4 AND iVAV = 1) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2F303_SQ402.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2F303_SQ402.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2F303_SQ402.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2F303_SQ402.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2F303_SQ402.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2F303_SQ402.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2F303_SQ402.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2F303_SQ402.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2F303_SQ402.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2F303_SQ401.xAddress OR (iLinje = 4 AND iVAV = 2) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2F303_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2F303_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2F303_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2F303_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2F303_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2F303_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2F303_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2F303_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2F303_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2D303_SQ402.xAddress OR (iLinje = 4 AND iVAV = 3) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2D303_SQ402.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2D303_SQ402.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2D303_SQ402.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2D303_SQ402.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2D303_SQ402.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2D303_SQ402.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2D303_SQ402.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2D303_SQ402.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2D303_SQ402.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2D303_SQ401.xAddress OR (iLinje = 4 AND iVAV = 4) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2D303_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2D303_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2D303_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2D303_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2D303_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2D303_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2D303_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2D303_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2D303_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2C304_SQ401.xAddress OR (iLinje = 4 AND iVAV = 5) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2C304_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2C304_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2C304_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2C304_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2C304_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2C304_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2C304_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2C304_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2C304_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2C203_SQ502.xAddress OR (iLinje = 4 AND iVAV = 6) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2C203_SQ502.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2C203_SQ502.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2C203_SQ502.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2C203_SQ502.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2C203_SQ502.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2C203_SQ502.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2C203_SQ502.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2C203_SQ502.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2C203_SQ502.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2C203_SQ501.xAddress OR (iLinje = 4 AND iVAV = 7) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2C203_SQ501.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2C203_SQ501.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2C203_SQ501.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2C203_SQ501.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2C203_SQ501.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2C203_SQ501.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2C203_SQ501.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2C203_SQ501.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2C203_SQ501.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2C302_SQ401.xAddress OR (iLinje = 4 AND iVAV = 8) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2C302_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2C302_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2C302_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2C302_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2C302_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2C302_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2C302_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2C302_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2C302_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_J2_SQ501.xAddress OR (iLinje = 5 AND iVAV = 1) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_J2_SQ501.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_J2_SQ501.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_J2_SQ501.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_J2_SQ501.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_J2_SQ501.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_J2_SQ501.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_J2_SQ501.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_J2_SQ501.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_J2_SQ501.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2H201_SQ401.xAddress OR (iLinje = 5 AND iVAV = 2) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2H201_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2H201_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2H201_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2H201_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2H201_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2H201_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2H201_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2H201_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2H201_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2H202_SQ401.xAddress OR (iLinje = 5 AND iVAV = 3) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2H202_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2H202_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2H202_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2H202_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2H202_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2H202_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2H202_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2H202_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2H202_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2G202_SQ401.xAddress OR (iLinje = 5 AND iVAV = 4) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2G202_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2G202_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2G202_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2G202_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2G202_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2G202_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2G202_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2G202_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2G202_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2H202_SQ501.xAddress OR (iLinje = 5 AND iVAV = 5) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2H202_SQ501.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2H202_SQ501.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2H202_SQ501.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2H202_SQ501.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2H202_SQ501.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2H202_SQ501.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2H202_SQ501.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2H202_SQ501.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2H202_SQ501.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2G303_SQ501.xAddress OR (iLinje = 5 AND iVAV = 6) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2G303_SQ501.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2G303_SQ501.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2G303_SQ501.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2G303_SQ501.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2G303_SQ501.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2G303_SQ501.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2G303_SQ501.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2G303_SQ501.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2G303_SQ501.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2I301_SQ401.xAddress OR (iLinje = 5 AND iVAV = 7) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2I301_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2I301_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2I301_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2I301_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2I301_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2I301_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2I301_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2I301_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2I301_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2E201_SQ501.xAddress OR (iLinje = 5 AND iVAV = 8) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2E201_SQ501.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2E201_SQ501.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2E201_SQ501.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2E201_SQ501.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2E201_SQ501.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2E201_SQ501.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2E201_SQ501.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2E201_SQ501.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2E201_SQ501.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2D201_SQ401.xAddress OR (iLinje = 6 AND iVAV = 1) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2D201_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2D201_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2D201_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2D201_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2D201_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2D201_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2D201_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2D201_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2D201_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2D201_SQ501.xAddress OR (iLinje = 6 AND iVAV = 3) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2D201_SQ501.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2D201_SQ501.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2D201_SQ501.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2D201_SQ501.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2D201_SQ501.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2D201_SQ501.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2D201_SQ501.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2D201_SQ501.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2D201_SQ501.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2G201_SQ401.xAddress OR (iLinje = 6 AND iVAV = 2) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2G201_SQ401.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2G201_SQ401.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2G201_SQ401.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2G201_SQ401.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2G201_SQ401.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2G201_SQ401.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2G201_SQ401.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2G201_SQ401.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2G201_SQ401.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	ELSIF STLV80_360.STLV80_A_360_2G201_SQ501.xAddress OR (iLinje = 6 AND iVAV = 4) THEN
+
+	IF xInit THEN
+		STLV80_360.STLV80_A_360_2G201_SQ501.xEnable:= FALSE;
+		Auto(
+			bPort:= STLV80_360.STLV80_A_360_2G201_SQ501.bPort,
+			bAddress:= STLV80_360.STLV80_A_360_2G201_SQ501.bAddress,
+			iSerialNr:= STLV80_360.STLV80_A_360_2G201_SQ501.iSerialNr,
+			xNext:= TRUE,
+			xReset:= FALSE
+			);
+		xInit:= FALSE;
+
+	ELSIF Auto.i=4 THEN
+		STLV80_360.STLV80_A_360_2G201_SQ501.sSetStatus:= Auto.sSetStatus;
+			STLV80_360.STLV80_A_360_2G201_SQ501.sGetStatus:= Auto.sGetStatus;
+			STLV80_360.STLV80_A_360_2G201_SQ501.xFailed:= Auto.xFailed;
+			STLV80_360.STLV80_A_360_2G201_SQ501.xAddress:= FALSE;
+			STLV80_360.STLV80_A_360_2G201_SQ501.xEnable:= TRUE;
+			xReset:= TRUE;
+			iVAV:=iVAV+1;
+
+		ELSE
+			Auto(xNext:= FALSE);
+		END_IF
+
+	END_IF
+END_IF
+</xhtml>
+				</ST>
+			</body>
+			<addData />
+		</pou>
+	</pous>
+</types>
+<instances>
+	<configurations />
+</instances>
+<addData>
+	<data name="http://www.3s-software.com/plcopenxml/globalvars" handleUnknown="implementation">
+		<globalVars name="STLV80_360">
+			<variable name="STLV80_A_360_2B205_SQ501">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="117" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="388" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="775" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="1750" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="1" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="1" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="02016" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="10177" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="153" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2A202_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="15" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="50" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="100" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="1" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="2" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="0" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="0" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="0" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="0" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2A201_SQ501">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="53" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="175" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="350" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="700" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="1" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="3" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="02024" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="30015" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="153" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2A301_SQ501">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="15" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="50" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="100" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="1" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="4" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="02024" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="30013" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="153" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2A302_SQ501">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="34" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="113" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="225" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="700" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="1" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="5" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="02016" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="10168" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="159" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2A302_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="32" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="113" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="225" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="1" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="6" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01947" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="10236" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="158" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2B301_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="15" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="50" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="100" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="265" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="1" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="7" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01947" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="10291" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="129" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2B204_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="23" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="75" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="150" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="2" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="1" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01945" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="20043" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="158" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2C204_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="12" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="38" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="75" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="2" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="2" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01947" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="10296" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="158" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2C202_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="15" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="50" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="100" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="2" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="3" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01947" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="10298" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="129" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2B202_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="23" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="75" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="150" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="2" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="4" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01945" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="20041" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="129" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2B201_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="23" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="75" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="150" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="2" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="5" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01945" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="20008" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="129" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2A201_SQ402">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="27" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="88" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="175" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="2" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="6" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01945" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="20057" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="158" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2A201_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="27" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="88" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="175" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="2" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="7" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01947" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="10240" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="129" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2B204_SQ501">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="23" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="75" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="150" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="2" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="8" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="02024" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="30014" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="153" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2F203_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="38" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="125" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="250" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="3" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="1" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01947" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="10299" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="129" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2E201_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="30" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="100" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="200" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="3" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="2" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01947" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="10294" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="158" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2E201_SQ402">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="30" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="100" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="200" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="3" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="3" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01947" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="10295" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="158" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2E201_SQ403">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="30" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="100" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="200" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="3" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="4" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01947" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="10296" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="129" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2D202_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="30" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="100" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="200" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="3" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="5" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="02024" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="00008" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="158" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2D202_SQ402">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="30" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="100" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="200" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="3" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="6" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01947" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="10292" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="158" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2D202_SQ501">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="60" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="200" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="400" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="700" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="3" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="7" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="02038" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="30032" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="152" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2F203_SQ501">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="45" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="150" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="300" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="700" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="3" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="8" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="02038" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="30032" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="142" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2F303_SQ402">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="34" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="113" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="225" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="4" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="1" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01945" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="20056" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="129" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2F303_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="34" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="113" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="225" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="4" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="2" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01945" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="20058" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="158" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2D303_SQ402">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="30" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="100" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="200" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="4" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="3" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01947" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="10251" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="129" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2D303_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="30" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="100" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="200" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="4" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="4" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01947" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="10239" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="129" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2C304_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="30" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="100" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="200" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="4" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="5" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01947" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="20007" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="129" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2C203_SQ502">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="45" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="150" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="300" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="700" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="4" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="6" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="02019" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="10136" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="152" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2C203_SQ501">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="53" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="175" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="350" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="1060" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="4" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="7" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="02017" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="30062" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="152" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2C302_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="8" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="25" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="50" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="4" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="8" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01947" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="10237" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="158" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_J2_SQ501">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="0" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="75" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="75" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="265" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="5" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="1" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="02045" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="20081" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="140" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2H201_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="15" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="50" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="100" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="434" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="5" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="2" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="02024" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="00006" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="158" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2H202_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="12" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="38" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="75" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="265" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="5" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="3" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="02024" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="00007" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="158" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2G202_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="53" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="175" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="350" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="700" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="5" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="4" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="02024" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="30017" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="153" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2H202_SQ501">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="64" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="213" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="425" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="700" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="5" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="5" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="02038" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="30030" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="164" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2G303_SQ501">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="60" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="200" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="400" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="700" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="5" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="6" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="02024" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="30016" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="153" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2I301_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="15" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="50" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="100" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="265" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="5" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="7" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="01947" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="10279" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="129" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2E201_SQ501">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="53" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="175" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="350" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="700" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="5" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="8" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="02024" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="30017" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="158" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="159" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2D201_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="135" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="450" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="900" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="1750" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="6" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="1" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="0" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="0" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="0" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="0" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2D201_SQ501">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="135" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="450" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="900" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="1750" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="6" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="3" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="0" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="0" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="0" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="0" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2G201_SQ401">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="135" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="450" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="900" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="1750" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="6" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="2" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="0" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="0" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="0" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="0" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<variable name="STLV80_A_360_2G201_SQ501">
+				<type>
+					<derived name="typVAV" />
+				</type>
+				<initialValue>
+					<structValue>
+						<value member="xEnable">
+							<simpleValue value="TRUE" />
+						</value>
+						<value member="vMin">
+							<simpleValue value="135" />
+						</value>
+						<value member="vNorm">
+							<simpleValue value="450" />
+						</value>
+						<value member="vMax">
+							<simpleValue value="900" />
+						</value>
+						<value member="vSize">
+							<simpleValue value="1750" />
+						</value>
+						<value member="bPort">
+							 <simpleValue value="6" />
+						</value>
+						<value member="bAddress">
+							<simpleValue value="4" />
+						</value>
+						<value member="iSerialNr">
+							<structValue>
+								<value member="wYearAndWeek">
+									<simpleValue value="0" />
+								</value>
+								<value member="wDayAndNumber">
+									<simpleValue value="0" />
+								</value>
+								<value member="bTypeID">
+									<simpleValue value="0" />
+								</value>
+								<value member="bTestStation">
+									<simpleValue value="0" />
+								</value>
+							</structValue>
+						</value>
+					</structValue>
+				</initialValue>
+			</variable>
+			<addData>
+				data name="http://www.3s-software.com/plcopenxml/attributes" handleUnknown="implementation"
+					<Attributes>>
+						<<Attribute Name="qualified_only" Value="" />>
+					</Attributes>
+				</data>
+				<data name="http://www.3s-software.com/plcopenxml/buildproperties" handleUnknown="implementation">
+					<BuildProperties>
+						<LinkAlways>true</LinkAlways>
+					</BuildProperties>
+				</data>
+			</addData>
+		</globalVars>
+	</data>
+</addData>
+</project>
